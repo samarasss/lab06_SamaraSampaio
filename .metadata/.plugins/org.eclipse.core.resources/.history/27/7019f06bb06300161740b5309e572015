@@ -1,0 +1,100 @@
+package lab6;
+
+public class Jogo {
+	
+	private String nome;
+	private double preco;
+	private int maiorScore;
+	private int qntJogou;
+	private int qntZerou;
+	
+	public Jogo(String nome, double preco) throws Exception{
+		
+		if (nome == null || nome.trim().isEmpty()){
+			throw new Exception("Nome nao pode ser nulo ou vazio");
+		}
+		if (preco < 0){
+			throw new Exception("Preco nao pode ser negativo");
+		}
+		
+		nome = this.nome;
+		preco = this.preco;
+		
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+	public int getMaiorScore() {
+		return maiorScore;
+	}
+
+	public void setMaiorScore(int maiorScore) {
+		this.maiorScore = maiorScore;
+	}
+
+	public int getQntJogou() {
+		return qntJogou;
+	}
+
+	public void setQntJogou(int qntJogou) {
+		this.qntJogou = qntJogou;
+	}
+
+	public int getQntZerou() {
+		return qntZerou;
+	}
+
+	public void setQntZerou(int qntZerou) {
+		this.qntZerou = qntZerou;
+	}
+
+	public void registraJogada(int score, boolean zerou){
+		
+		setQntJogou(getQntJogou()+1);
+		
+		if(score > getMaiorScore()){
+			setMaiorScore(score) ;
+		}
+		
+		if (zerou == true){
+			setQntZerou(getQntZerou()+1);
+		}
+		
+	}
+	
+	public String toString(){
+		return "O nome do jogo eh " + this.nome +". " + "Custa R$ " + this.preco + ". \n"
+				+ "O usuario jogou " + setQntJogou(qntJogou);+ "vezes. Zerou " +
+				+ setQntZerou(qntZerou) + "vezes. Obtendo score de " + setMaiorScore(maiorScore);
+				
+	}
+	
+	
+
+}
+
+
+/*Crie uma entidade Jogo que possui um nome, um valor real para o preço, e diversas informações sobre o 
+ * uso do Jogo. Dentre elas: o maior score (pontuação) atingida pelo usuário dentre as vezes que jogou o 
+ * jogo, a quantidade de vezes que o usuário jogou aquele jogo, e a quantidade de vezes que o usuário conseguiu
+ *  concluir (zerar) o jogo. O jogo deve possuir o método registraJogada, que recebe um inteiro referente ao score 
+ *  atingido pelo usuário, e um boolean indicando se o usuário conseguiu zerar o jogo. A pontuação máxima, e as 
+ *  quantidades de vezes que o jogo foi jogado/zerado começam com um valor zero (0). Note que o atributo de máximo 
+ *  score só é atualizado se a pontuação do usuário, ao jogar, for maior do que a pontuação atual. Além disso, 
+ *  existem três tipos de Jogos, o RPG (Role Playing Game), Luta e Plataforma.
+ */
+*/
